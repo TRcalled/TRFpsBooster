@@ -1,7 +1,7 @@
 if not game:IsLoaded() then game.Loaded:Wait() end
 
 
-local LIBRARY_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/Library.lua"
+local LIBRARY_URL = "https://raw.githubusercontent.com/TRcalled/TRFpsBooster/main/Lib.lua"
 
 local success, Library = pcall(function()
     return loadstring(game:HttpGet(LIBRARY_URL))()
