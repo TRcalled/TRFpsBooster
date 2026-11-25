@@ -276,24 +276,6 @@ local function optimizeMeshPart(inst)
 	end
 end
 
-local function optimizePartOperation(inst)
-	if inst.CastShadow then
-		inst.CastShadow = false
-	end
-	if inst.Reflectance ~= 0 then
-		inst.Reflectance = 0
-	end
-	if not isProtectedVisual(inst) then
-		if inst.Material ~= SmoothPlastic then
-			inst.Material = SmoothPlastic
-		end
-		if inst.MaterialVariant ~= "" then
-			inst.MaterialVariant = ""
-		end
-		applyPerfFidelity(inst)
-	end
-end
-
 local function optimizeDecal(inst)
 	if not isProtectedVisual(inst) then
 		if inst.Transparency ~= 1 then
@@ -477,10 +459,10 @@ local Handlers = {
 	FlagStand = optimizeBasePart,
 	SkateboardPlatform = optimizeBasePart,
 	Platform = optimizeBasePart,
+	UnionOperation = optimizeBasePart,
+	NegateOperation = optimizeBasePart,
+	IntersectOperation = optimizeBasePart,
 	MeshPart = optimizeMeshPart,
-	UnionOperation = optimizePartOperation,
-	NegateOperation = optimizePartOperation,
-	IntersectOperation = optimizePartOperation,
 	Terrain = optimizeTerrain,
 	Decal = optimizeDecal,
 	Texture = optimizeDecal,
